@@ -22,7 +22,7 @@ const jetbrains = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = "https://melodyyyin.github.io";
+const siteUrl = "https://melodyyyyin.github.io";
 const description =
   "Yue (Melody) Yin — Software Engineer focused on AI infrastructure, LLM systems, and distributed systems. Building scalable backend and AI systems across cloud infrastructure, distributed serving, LLM inference, and observability.";
 

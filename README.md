@@ -3,7 +3,7 @@
 Personal portfolio site for **Yue (Melody) Yin** — Software Engineer focused on
 AI Infrastructure, LLM Systems, and Distributed Systems.
 
-🔗 **Live:** https://melodyyyin.github.io
+🔗 **Live:** https://melodyyyyin.github.io
 
 ## Stack
 
