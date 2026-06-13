@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+  background-image:
+    radial-gradient(50% 38% at 18% 0%, rgba(144, 112, 196, 0.12) 0%, rgba(250, 249, 252, 0) 70%),
+    radial-gradient(45% 36% at 88% 6%, rgba(216, 148, 168, 0.10) 0%, rgba(250, 249, 252, 0) 72%),
+    radial-gradient(55% 40% at 50% 100%, rgba(142, 162, 232, 0.10) 0%, rgba(250, 249, 252, 0) 75%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-6 sm:px-8;
+  }
+
+  .section-label {
+    @apply mb-3 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-lavender-600;
+  }
+
+  .heading {
+    @apply font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl;
+  }
+
+  .glass {
+    @apply rounded-2xl border border-white/60 bg-white/70 shadow-soft backdrop-blur-md;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-lavender-200 bg-lavender-50 px-2.5 py-1 font-mono text-[11px] text-lavender-600;
+  }
+
+  .gradient-text {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-lavender-500 after:transition-all hover:after:w-full;
+  }
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle custom scrollbar on supported browsers. */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(144, 112, 196, 0.3);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(144, 112, 196, 0.5);
+  background-clip: content-box;
+}

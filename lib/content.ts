@@ -1,0 +1,299 @@
+/**
+ * Single source of truth for all site content.
+ * Curated from résumé + verified GitHub activity. No invented facts.
+ */
+
+export const profile = {
+  name: "Yue (Melody) Yin",
+  shortName: "Melody Yin",
+  role: "Software Engineer · AI Infrastructure & Distributed Systems",
+  tagline:
+    "I build scalable backend and AI systems across cloud infrastructure, distributed serving, LLM inference, and observability.",
+  location: "United States · No sponsorship required",
+  email: "melodyyin31@gmail.com",
+  github: "https://github.com/MelodyyyYin",
+  linkedin: "https://www.linkedin.com/in/yue-yin-ucsd2025/",
+  resume: "/Melody_Yin_Resume.pdf",
+};
+
+export const about = {
+  lead: "I'm a software engineer focused on building reliable infrastructure for AI systems.",
+  paragraphs: [
+    "My work spans LLM serving, distributed systems, cloud infrastructure, backend platforms, and performance-oriented engineering. I care about systems that stay fast and correct under load — the layer that makes AI applications production-ready.",
+    "I'm an incoming MSECE student at Carnegie Mellon University, and I graduated from UC San Diego with a double major in Mathematics–Computer Science and Cognitive Science (Machine Learning specialization). Across internships and open source, I've worked on distributed serving, gRPC backends, caching and consensus, RAG pipelines, and CI/benchmarking for multimodal LLM inference.",
+  ],
+  focus: [
+    "AI infrastructure & LLM serving",
+    "Distributed systems & consensus",
+    "Cloud infrastructure & backend platforms",
+    "Observability, reliability & performance",
+  ],
+};
+
+export type Experience = {
+  company: string;
+  role: string;
+  dates: string;
+  location: string;
+  summary: string;
+  bullets: string[];
+  stack: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    company: "HU MEI USA",
+    role: "Software Engineering Intern",
+    dates: "Jun 2025 – Sep 2025",
+    location: "Rancho Cucamonga, CA",
+    summary:
+      "Built an LLM-powered assistant with real-time, multimodal interaction and a retrieval backend.",
+    bullets: [
+      "Built an AI assistant supporting natural-language interaction in text and voice using LangChain, FastAPI, and WebSockets, with AI text-to-speech for real-time conversational guidance.",
+      "Implemented long-term memory with Redis + LangChain to persist conversation state, improving multi-turn coherence and contextual consistency by ~45%.",
+      "Designed a RAG pipeline with LangChain embeddings and a Qdrant vector store to retrieve context-relevant data, reducing hallucination rates by ~35% on complex queries.",
+      "Integrated external web-search aggregation with internal data, applying ranking and filtering to surface the most relevant results.",
+    ],
+    stack: [
+      "Python",
+      "LangChain",
+      "FastAPI",
+      "WebSockets",
+      "Redis",
+      "Qdrant",
+      "RAG",
+      "Embeddings",
+    ],
+  },
+  {
+    company: "ETL Performance",
+    role: "Software Engineering Intern",
+    dates: "Jun 2024 – Sep 2024",
+    location: "Remote",
+    summary:
+      "Built scalable Go microservices and a low-latency, fault-tolerant data pipeline for a testing platform.",
+    bullets: [
+      "Built scalable microservices in Go (Gin) with an event-driven architecture for real-time sensor-data ingestion, test logging, configuration management, and anomaly extraction.",
+      "Implemented gRPC with connection pooling and keepalive to enable low-latency, high-throughput data exchange across dual-environment testing workflows.",
+      "Designed and optimized MySQL schemas with indexing and query caching to accelerate analytics queries; added a Redis LRU cache that cut query latency ~23%.",
+      "Configured Nginx for reverse proxy and load balancing and containerized services with Docker on Docker Swarm, improving pipeline scalability and fault tolerance.",
+    ],
+    stack: [
+      "Go",
+      "gRPC",
+      "MySQL",
+      "Redis",
+      "Nginx",
+      "Docker",
+      "Docker Swarm",
+    ],
+  },
+  {
+    company: "UC San Diego Career Center",
+    role: "Data Analyst Intern",
+    dates: "Jan 2024 – Jun 2025",
+    location: "San Diego, CA",
+    summary:
+      "Automated data pipelines and reporting for advising operations.",
+    bullets: [
+      "Automated ETL pipelines in Python (Pandas, NumPy) for cleaning, feature engineering, and transformation, replacing manual effort with repeatable reporting workflows.",
+      "Applied statistical analysis and visualization to advising trends, delivering staffing-optimization insights that improved peak-hour coverage by ~20%.",
+    ],
+    stack: ["Python", "Pandas", "NumPy", "ETL", "Statistical analysis"],
+  },
+];
+
+export type Project = {
+  name: string;
+  blurb: string;
+  bullets: string[];
+  stack: string[];
+  link?: { href: string; label: string };
+  tag: string;
+};
+
+export const projects: Project[] = [
+  {
+    name: "Distributed Key–Value Store",
+    tag: "Distributed Systems",
+    blurb:
+      "A linearizable, sharded key–value store built on Multi-Raft consensus.",
+    bullets: [
+      "Built a distributed KV store in Java with Multi-Raft consensus, reaching 99.9% availability, 50K QPS, and <10ms P99 latency for linearizable reads/writes.",
+      "Implemented consistent hashing with virtual nodes for ~95% balanced distribution and dynamic shard rebalancing with <1% overhead.",
+      "Integrated a RocksDB (LSM-tree) + in-memory B+ tree hybrid engine with MVCC snapshot isolation; optimized reads via ReadIndex, FollowerRead, and async apply batching — ~35% lower latency, ~2× throughput.",
+    ],
+    stack: ["Java", "Raft", "RocksDB", "MVCC", "Consistent Hashing"],
+  },
+  {
+    name: "MyRPC — Distributed RPC Framework",
+    tag: "Backend Infrastructure",
+    blurb:
+      "A gRPC-style RPC framework with service discovery, load balancing, and health monitoring.",
+    bullets: [
+      "Built an RPC framework using Protobuf as the IDL, supporting asynchronous calls, dynamic service registration/discovery, and heartbeat detection with Spring, Netty, and ZooKeeper.",
+      "Implemented long-lived TCP connections and heartbeat detection over Netty; enabled load balancing with weighted round-robin and ZooKeeper-based health monitoring.",
+      "Added FastJSON serialization for efficient transmission and dynamically generated proxy classes for remote interfaces via CGLIB.",
+    ],
+    stack: ["Java", "Netty", "ZooKeeper", "Protobuf", "Spring"],
+  },
+  {
+    name: "Blackwell GEMM Kernel Optimization",
+    tag: "GPU / Performance",
+    blurb:
+      "Low-level GEMM kernel optimization targeting NVIDIA's Blackwell architecture.",
+    bullets: [
+      "Explored GEMM kernel optimization for NVIDIA Blackwell GPUs, the matrix-multiply primitive underlying LLM inference and training.",
+      "Focused on tiling, memory-hierarchy use, and throughput tuning for high-performance numerical kernels.",
+    ],
+    stack: ["CUDA", "GPU Kernels", "Performance"],
+    link: {
+      href: "https://github.com/MelodyyyYin/assignment-tirx-gemm",
+      label: "GitHub",
+    },
+  },
+];
+
+export type OpenSourceItem = {
+  title: string;
+  href: string;
+  meta: string;
+  state: "merged" | "open" | "closed";
+  description: string;
+};
+
+export const openSource = {
+  intro:
+    "I contribute to sglang-omni — a high-performance, multi-stage pipeline framework for serving omni / multimodal LLMs — focused on serving reliability, CI, and inference benchmarking.",
+  repo: "https://github.com/sgl-project/sglang-omni",
+  items: [
+    {
+      title:
+        "Qwen3-ASR CI gate + ASR concurrency-scaling benchmark",
+      href: "https://github.com/sgl-project/sglang-omni/pull/647",
+      meta: "PR #647 · +561 / −217",
+      state: "merged",
+      description:
+        "Aligned the Qwen3-ASR stage-1 CI gate to a fixed concurrency and added a concurrency-scaling benchmark for speech-recognition inference.",
+    },
+    {
+      title: "SGLang-Omni cookbook documentation",
+      href: "https://github.com/sgl-project/sglang-omni/pull/670",
+      meta: "PR #670 · +360 / −61",
+      state: "merged",
+      description:
+        "Verified and expanded the cookbook docs to improve developer onboarding and reproducibility for serving workflows.",
+    },
+    {
+      title: "Router retries for transient worker failures",
+      href: "https://github.com/sgl-project/sglang-omni/pull/628",
+      meta: "PR #628 · +460 / −43",
+      state: "closed",
+      description:
+        "Added router-level retries for transient worker failures to fix flaky Qwen3-Omni MMMU CI and improve serving resilience.",
+    },
+    {
+      title: "MOSS TTS CI expansion — Phase 1 metric reporting",
+      href: "https://github.com/sgl-project/sglang-omni/pull/726",
+      meta: "PR #726 · +308 / −45",
+      state: "closed",
+      description:
+        "Expanded text-to-speech CI coverage to MOSS TTS with first-phase metric reporting for inference quality.",
+    },
+    {
+      title: "Fix tensor device mismatch + CI artifact glob (Video)",
+      href: "https://github.com/sgl-project/sglang-omni/pull/767",
+      meta: "PR #767 · +106 / −93",
+      state: "open",
+      description:
+        "Resolved a tensor device mismatch and corrected a CI artifact glob in the Video-AMMBench path.",
+    },
+  ] as OpenSourceItem[],
+};
+
+export const skills: { group: string; items: string[] }[] = [
+  {
+    group: "Languages",
+    items: ["Python", "Java", "Go", "C++", "C", "JavaScript", "TypeScript"],
+  },
+  {
+    group: "AI / LLM Systems",
+    items: [
+      "LLM serving (sglang-omni)",
+      "Inference benchmarking",
+      "RAG",
+      "LangChain",
+      "Embeddings",
+      "Vector DBs (Qdrant)",
+      "FastAPI",
+      "WebSockets",
+    ],
+  },
+  {
+    group: "Backend / Distributed Systems",
+    items: [
+      "gRPC",
+      "Protobuf",
+      "Netty",
+      "ZooKeeper",
+      "Raft consensus",
+      "RocksDB",
+      "Kafka",
+      "RocketMQ",
+      "RabbitMQ",
+      "Caching",
+      "Concurrency",
+      "Spring Boot / Cloud",
+    ],
+  },
+  {
+    group: "Cloud / Infrastructure",
+    items: [
+      "Docker",
+      "Docker Swarm",
+      "Kubernetes",
+      "AWS (EC2 · S3 · Lambda)",
+      "Nginx",
+      "Jenkins",
+      "CI/CD",
+      "Linux",
+      "Shell",
+      "Git",
+    ],
+  },
+  {
+    group: "Data / Storage",
+    items: [
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch",
+      "Pandas",
+      "NumPy",
+    ],
+  },
+];
+
+export type Education = {
+  school: string;
+  degree: string;
+  dates: string;
+  detail?: string;
+};
+
+export const education: Education[] = [
+  {
+    school: "Carnegie Mellon University",
+    degree: "M.S. in Electrical & Computer Engineering (MSECE)",
+    dates: "Expected May 2027",
+    detail: "Incoming graduate student.",
+  },
+  {
+    school: "University of California, San Diego",
+    degree:
+      "B.S. Mathematics–Computer Science · B.S. Cognitive Science (Machine Learning specialization)",
+    dates: "Sep 2021 – Jun 2025",
+    detail: "GPA 3.8 / 4.0 · Provost Honors (6×) · PACE Fellowships ’23, ’24",
+  },
+];
