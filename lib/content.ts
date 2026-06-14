@@ -20,7 +20,7 @@ export const about = {
   lead: "I'm a software engineer focused on building reliable infrastructure for AI systems.",
   paragraphs: [
     "My work spans LLM serving, distributed systems, cloud infrastructure, backend platforms, and performance-oriented engineering. I care about systems that stay fast and correct under load — the layer that makes AI applications production-ready.",
-    "I'm an incoming MSECE student at Carnegie Mellon University, and I graduated from UC San Diego with a double major in Mathematics–Computer Science and Cognitive Science (Machine Learning specialization). Across internships and open source, I've worked on distributed serving, gRPC backends, caching and consensus, RAG pipelines, and CI/benchmarking for multimodal LLM inference.",
+    "I'm an MSECE student at Carnegie Mellon University (graduating May 2027), and I graduated from UC San Diego with a double major in Mathematics–Computer Science and Cognitive Science (Machine Learning specialization). Across internships and open source, I've worked on distributed serving, gRPC backends, caching and consensus, RAG pipelines, and CI/benchmarking for multimodal LLM inference.",
   ],
   focus: [
     "AI infrastructure & LLM serving",
@@ -45,8 +45,9 @@ export const experience: Experience[] = [
   {
     company: "ServiceNow",
     role: "Software Engineering Intern",
-    // TODO(Melody): update start month/location once confirmed.
+    // TODO(Melody): refine summary/bullets/stack as the internship progresses.
     dates: "Jun 2026 – Present",
+    location: "Santa Clara, CA",
     current: true,
     summary:
       "Working on cloud infrastructure and observability for internal platform systems.",
@@ -55,6 +56,18 @@ export const experience: Experience[] = [
       "Working on agentic-workflow and platform-engineering initiatives within the cloud organization.",
     ],
     stack: ["Cloud Infrastructure", "Observability", "Agentic Workflows"],
+  },
+  {
+    company: "sglang-omni",
+    role: "Open Source Contributor",
+    dates: "Jun 2026 – Present",
+    current: true,
+    summary:
+      "Contribute to sglang-omni, a high-performance serving framework for multimodal LLMs.",
+    bullets: [
+      "Contribute to sglang-omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads. See the Open Source section for merged PRs.",
+    ],
+    stack: ["LLM Serving", "Python", "CI/CD", "Benchmarking"],
   },
   {
     company: "HU MEI USA",
@@ -302,7 +315,7 @@ export const education: Education[] = [
     school: "Carnegie Mellon University",
     degree: "M.S. in Electrical & Computer Engineering (MSECE)",
     dates: "Expected May 2027",
-    detail: "Incoming graduate student.",
+    detail: "Current graduate student.",
   },
   {
     school: "University of California, San Diego",
