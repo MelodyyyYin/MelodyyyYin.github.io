@@ -17,6 +17,61 @@ export const profile = {
   photo: "/melody.jpg",
 };
 
+export type NewsItem = {
+  date: string;
+  text: string;
+  tag: string;
+  highlight?: boolean;
+};
+
+export const news: NewsItem[] = [
+  {
+    date: "Fall 2026",
+    text: "Joining Amazon as a Software Engineering Intern (SDE).",
+    tag: "Incoming",
+    highlight: true,
+  },
+  {
+    date: "Jun 2026",
+    text: "Started as a Software Engineering Intern at ServiceNow (Santa Clara), working on cloud infrastructure and observability.",
+    tag: "New role",
+  },
+  {
+    date: "Jun 2026",
+    text: "Began contributing to sglang-omni, an open-source serving framework for multimodal LLMs.",
+    tag: "Open source",
+  },
+  {
+    date: "Fall 2025",
+    text: "Started my M.S. in Electrical & Computer Engineering at Carnegie Mellon University.",
+    tag: "Education",
+  },
+  {
+    date: "Jun 2025",
+    text: "Graduated from UC San Diego — B.S. Mathematics–Computer Science and B.S. Cognitive Science (ML specialization).",
+    tag: "Milestone",
+  },
+];
+
+export const affiliations = [
+  {
+    name: "Carnegie Mellon University",
+    src: "/logos/cmu.svg",
+    href: "https://www.cmu.edu",
+  },
+  {
+    name: "ServiceNow",
+    src: "/logos/servicenow.svg",
+    href: "https://www.servicenow.com",
+  },
+  { name: "Amazon", src: "/logos/amazon.svg", href: "https://www.amazon.com" },
+  {
+    name: "UC San Diego",
+    src: "/logos/ucsd.svg",
+    href: "https://ucsd.edu",
+  },
+];
+
 export const about = {
   lead: "I'm a software engineer focused on building reliable infrastructure for AI systems.",
   paragraphs: [
