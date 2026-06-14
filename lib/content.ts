@@ -34,13 +34,28 @@ export type Experience = {
   company: string;
   role: string;
   dates: string;
-  location: string;
   summary: string;
   bullets: string[];
   stack: string[];
+  location?: string;
+  current?: boolean;
 };
 
 export const experience: Experience[] = [
+  {
+    company: "ServiceNow",
+    role: "Software Engineering Intern",
+    // TODO(Melody): update start month/location once confirmed.
+    dates: "Jun 2026 – Present",
+    current: true,
+    summary:
+      "Working on cloud infrastructure and observability for internal platform systems.",
+    bullets: [
+      "Contributing to cloud-infrastructure and observability tooling across internal platform services.",
+      "Working on agentic-workflow and platform-engineering initiatives within the cloud organization.",
+    ],
+    stack: ["Cloud Infrastructure", "Observability", "Agentic Workflows"],
+  },
   {
     company: "HU MEI USA",
     role: "Software Engineering Intern",

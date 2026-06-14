@@ -17,6 +17,9 @@ export default function Experience() {
             <Reveal key={job.company} delay={i * 0.05}>
               <div className="relative pl-8 sm:pl-10">
                 <span className="absolute left-0 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent-gradient shadow-glow">
+                  {job.current && (
+                    <span className="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-lavender-400/60" />
+                  )}
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
                 </span>
 
@@ -30,7 +33,9 @@ export default function Experience() {
                       {job.dates}
                     </p>
                   </div>
-                  <p className="mt-1 text-sm text-ink-muted">{job.location}</p>
+                  {job.location && (
+                    <p className="mt-1 text-sm text-ink-muted">{job.location}</p>
+                  )}
                   <p className="mt-3 text-sm font-medium text-ink-soft">
                     {job.summary}
                   </p>
