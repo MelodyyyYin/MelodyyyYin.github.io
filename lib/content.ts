@@ -18,9 +18,9 @@ export const profile = {
   resume: "/Melody_Yin_Resume.pdf",
   photo: "/melody.jpg",
   highlights: [
-    { icon: "grad", label: "M.S. @ Carnegie Mellon" },
-    { icon: "work", label: "SWE Intern @ ServiceNow" },
-    { icon: "oss", label: "Open source @ SGLang-Omni" },
+    { img: "/logos/cmu-icon.png", label: "M.S. @ Carnegie Mellon" },
+    { img: "/logos/servicenow-icon.png", label: "SWE Intern @ ServiceNow" },
+    { img: "/logos/sglang-icon.png", label: "Open source @ SGLang-Omni" },
   ],
 };
 

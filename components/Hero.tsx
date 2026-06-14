@@ -1,23 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FileText,
-  Github,
-  Linkedin,
-  Mail,
-  ArrowDown,
-  GraduationCap,
-  Building2,
-  Code2,
-} from "lucide-react";
+import { FileText, Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { profile } from "@/lib/content";
-
-const highlightIcons: Record<string, typeof GraduationCap> = {
-  grad: GraduationCap,
-  work: Building2,
-  oss: Code2,
-};
 
 const ctas = [
   { href: profile.resume, label: "Résumé", icon: FileText, primary: true, external: true },
@@ -74,18 +59,21 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-6 flex flex-wrap gap-2.5">
-            {profile.highlights.map((h) => {
-              const Icon = highlightIcons[h.icon];
-              return (
-                <span
-                  key={h.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-apricot-200 bg-white/60 px-3.5 py-1.5 text-sm text-ink-soft shadow-soft backdrop-blur"
-                >
-                  {Icon && <Icon className="h-4 w-4 text-apricot-600" />}
-                  {h.label}
-                </span>
-              );
-            })}
+            {profile.highlights.map((h) => (
+              <span
+                key={h.label}
+                className="inline-flex items-center gap-2 rounded-full border border-apricot-200 bg-white/70 py-1.5 pl-1.5 pr-3.5 text-sm font-medium text-ink-soft shadow-soft backdrop-blur"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={h.img}
+                  alt=""
+                  aria-hidden
+                  className="h-5 w-5 rounded-[6px] object-contain ring-1 ring-black/5"
+                />
+                {h.label}
+              </span>
+            ))}
           </motion.div>
 
           <motion.p
