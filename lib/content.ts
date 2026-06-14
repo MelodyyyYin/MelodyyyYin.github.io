@@ -14,6 +14,7 @@ export const profile = {
   github: "https://github.com/MelodyyyYin",
   linkedin: "https://www.linkedin.com/in/yue-yin-ucsd2025/",
   resume: "/Melody_Yin_Resume.pdf",
+  photo: "/melody.jpg",
 };
 
 export const about = {

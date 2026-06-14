@@ -33,8 +33,8 @@ export default function Hero() {
         <div className="absolute bottom-0 left-1/3 h-72 w-72 animate-blob-drift rounded-full bg-rose-300/30 blur-3xl [animation-delay:-12s]" />
       </div>
 
-      <div className="container-page">
-        <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl">
+      <div className="container-page grid items-center gap-12 lg:grid-cols-[1.25fr_0.85fr] lg:gap-10">
+        <motion.div variants={container} initial="hidden" animate="show" className="order-2 max-w-2xl lg:order-1">
           <motion.div variants={item} className="section-label">
             <span className="h-1.5 w-1.5 rounded-full bg-lavender-500" />
             {profile.role}
@@ -42,7 +42,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
+            className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
           >
             Yue <span className="text-ink-soft">(Melody)</span>{" "}
             <span className="gradient-text">Yin</span>
@@ -82,6 +82,34 @@ export default function Hero() {
               </a>
             ))}
           </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="order-1 mx-auto w-full max-w-[260px] sm:max-w-xs lg:order-2 lg:mx-0 lg:ml-auto lg:max-w-sm"
+        >
+          <div className="relative">
+            {/* soft gradient halo behind the portrait */}
+            <div
+              aria-hidden
+              className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-accent-gradient opacity-30 blur-2xl"
+            />
+            <div className="rounded-[2rem] bg-gradient-to-br from-lavender-300 via-haze-400 to-rose-300 p-[3px] shadow-lift">
+              <div className="overflow-hidden rounded-[1.85rem] bg-canvas">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={profile.photo}
+                  alt={`Portrait of ${profile.name}`}
+                  width={501}
+                  height={665}
+                  className="h-full w-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
 
