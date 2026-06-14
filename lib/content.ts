@@ -26,15 +26,10 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
-    date: "Fall 2026",
+    date: "Aug 2026",
     text: "Joining Amazon as a Software Engineering Intern (SDE).",
     tag: "Incoming",
     highlight: true,
-  },
-  {
-    date: "Jun 2026",
-    text: "Started as a Software Engineering Intern at ServiceNow (Santa Clara), working on cloud infrastructure and observability.",
-    tag: "New role",
   },
   {
     date: "Jun 2026",
@@ -42,7 +37,12 @@ export const news: NewsItem[] = [
     tag: "Open source",
   },
   {
-    date: "Fall 2025",
+    date: "May 2026",
+    text: "Started as a Software Engineering Intern at ServiceNow (Santa Clara), working on cloud infrastructure and observability.",
+    tag: "New role",
+  },
+  {
+    date: "Jan 2026",
     text: "Started my M.S. in Electrical & Computer Engineering at Carnegie Mellon University.",
     tag: "Education",
   },
@@ -102,7 +102,7 @@ export const experience: Experience[] = [
     company: "ServiceNow",
     role: "Software Engineering Intern",
     // TODO(Melody): refine summary/bullets/stack as the internship progresses.
-    dates: "Jun 2026 – Present",
+    dates: "May 2026 – Present",
     location: "Santa Clara, CA",
     current: true,
     summary:
@@ -326,7 +326,7 @@ export const education: Education[] = [
   {
     school: "Carnegie Mellon University",
     degree: "M.S. in Electrical & Computer Engineering (MSECE)",
-    dates: "Expected May 2027",
+    dates: "Jan 2026 – May 2027",
     detail: "Current graduate student.",
   },
   {
