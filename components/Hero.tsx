@@ -102,8 +102,8 @@ export default function Hero() {
                 <img
                   src={profile.photo}
                   alt={`Portrait of ${profile.name}`}
-                  width={501}
-                  height={665}
+                  width={900}
+                  height={1200}
                   className="h-full w-full object-cover"
                   loading="eager"
                 />
