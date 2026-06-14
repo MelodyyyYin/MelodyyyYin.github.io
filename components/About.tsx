@@ -1,6 +1,20 @@
+import { Fragment } from "react";
 import Section from "./Section";
 import Reveal from "./Reveal";
 import { about } from "@/lib/content";
+
+// Render **bold** segments as <strong>.
+function renderBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-semibold text-ink">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      <Fragment key={i}>{part}</Fragment>
+    ),
+  );
+}
 
 export default function About() {
   return (
@@ -12,7 +26,7 @@ export default function About() {
           </p>
           <div className="mt-5 space-y-4 leading-relaxed text-ink-soft">
             {about.paragraphs.map((p) => (
-              <p key={p.slice(0, 24)}>{p}</p>
+              <p key={p.slice(0, 24)}>{renderBold(p)}</p>
             ))}
           </div>
 

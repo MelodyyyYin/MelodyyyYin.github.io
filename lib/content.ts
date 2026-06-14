@@ -81,9 +81,10 @@ export const affiliations = [
 
 export const about = {
   lead: "I'm a software engineer focused on building reliable infrastructure for AI systems.",
+  // **double asterisks** render as bold in the About section.
   paragraphs: [
-    "My work spans LLM serving, distributed systems, cloud infrastructure, backend platforms, and performance-oriented engineering. I care about systems that stay fast and correct under load — the layer that makes AI applications production-ready.",
-    "I'm an MSECE student at Carnegie Mellon University (graduating May 2027), and I graduated from UC San Diego with a double major in Mathematics–Computer Science and Cognitive Science (Machine Learning specialization). Across internships and open source, I've worked on distributed serving, gRPC backends, caching and consensus, RAG pipelines, and CI/benchmarking for multimodal LLM inference.",
+    "My work spans **LLM serving**, **distributed systems**, **cloud infrastructure**, and **performance** — the layer that keeps AI applications fast, correct, and **production-ready** under load.",
+    "I'm an **MSECE student at Carnegie Mellon** (grad. May 2027) and a **UC San Diego** alum (Math–CS & Cognitive Science, ML). I've built **gRPC backends**, **consensus & caching**, **RAG pipelines**, and **CI/benchmarking for multimodal LLM inference**.",
   ],
   focus: [
     { emoji: "🤖", label: "AI infrastructure & LLM serving", dot: "bg-apricot-500" },
