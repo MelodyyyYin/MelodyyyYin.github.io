@@ -65,7 +65,7 @@ export const experience: Experience[] = [
     summary:
       "Contribute to sglang-omni, a high-performance serving framework for multimodal LLMs.",
     bullets: [
-      "Contribute to sglang-omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads. See the Open Source section for merged PRs.",
+      "Contribute to sglang-omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads.",
     ],
     stack: ["LLM Serving", "Python", "CI/CD", "Benchmarking"],
   },
@@ -182,61 +182,17 @@ export const projects: Project[] = [
   },
 ];
 
-export type OpenSourceItem = {
-  title: string;
-  href: string;
-  meta: string;
-  state: "merged" | "open" | "closed";
-  description: string;
-};
-
 export const openSource = {
   intro:
-    "I contribute to sglang-omni — a high-performance, multi-stage pipeline framework for serving omni / multimodal LLMs — focused on serving reliability, CI, and inference benchmarking.",
-  repo: "https://github.com/sgl-project/sglang-omni",
-  items: [
-    {
-      title:
-        "Qwen3-ASR CI gate + ASR concurrency-scaling benchmark",
-      href: "https://github.com/sgl-project/sglang-omni/pull/647",
-      meta: "PR #647 · +561 / −217",
-      state: "merged",
-      description:
-        "Aligned the Qwen3-ASR stage-1 CI gate to a fixed concurrency and added a concurrency-scaling benchmark for speech-recognition inference.",
-    },
-    {
-      title: "SGLang-Omni cookbook documentation",
-      href: "https://github.com/sgl-project/sglang-omni/pull/670",
-      meta: "PR #670 · +360 / −61",
-      state: "merged",
-      description:
-        "Verified and expanded the cookbook docs to improve developer onboarding and reproducibility for serving workflows.",
-    },
-    {
-      title: "Router retries for transient worker failures",
-      href: "https://github.com/sgl-project/sglang-omni/pull/628",
-      meta: "PR #628 · +460 / −43",
-      state: "closed",
-      description:
-        "Added router-level retries for transient worker failures to fix flaky Qwen3-Omni MMMU CI and improve serving resilience.",
-    },
-    {
-      title: "MOSS TTS CI expansion — Phase 1 metric reporting",
-      href: "https://github.com/sgl-project/sglang-omni/pull/726",
-      meta: "PR #726 · +308 / −45",
-      state: "closed",
-      description:
-        "Expanded text-to-speech CI coverage to MOSS TTS with first-phase metric reporting for inference quality.",
-    },
-    {
-      title: "Fix tensor device mismatch + CI artifact glob (Video)",
-      href: "https://github.com/sgl-project/sglang-omni/pull/767",
-      meta: "PR #767 · +106 / −93",
-      state: "open",
-      description:
-        "Resolved a tensor device mismatch and corrected a CI artifact glob in the Video-AMMBench path.",
-    },
-  ] as OpenSourceItem[],
+    "I contribute to sglang-omni — a high-performance, multi-stage pipeline framework for serving omni / multimodal LLMs. My work focuses on serving reliability, CI, and inference benchmarking.",
+  upstream: "https://github.com/sgl-project/sglang-omni",
+  repo: "https://github.com/MelodyyyYin/sglang-omni",
+  areas: [
+    "Serving reliability",
+    "CI & benchmarking",
+    "Multimodal LLM inference",
+    "Developer tooling",
+  ],
 };
 
 export const skills: { group: string; items: string[] }[] = [
