@@ -1,57 +1,77 @@
-import Section from "./Section";
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Reveal from "./Reveal";
-import { experience } from "@/lib/content";
+import { experience, type Experience as Job } from "@/lib/content";
 
-export default function Experience() {
+function ExperienceItem({ job, index }: { job: Job; index: number }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Section id="experience" label="Experience" title="Where I've built">
-      <div className="relative">
-        {/* timeline rail */}
-        <div
-          aria-hidden
-          className="absolute bottom-2 left-[7px] top-2 w-px bg-gradient-to-b from-lavender-300 via-lavender-200 to-transparent sm:left-[9px]"
-        />
+    <Reveal delay={index * 0.05}>
+      <div className="relative pl-8 sm:pl-10">
+        <span className="absolute left-0 top-6 flex h-4 w-4 items-center justify-center rounded-full bg-accent-gradient shadow-glow">
+          {job.current && (
+            <span className="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-apricot-400/60" />
+          )}
+          <span className="h-1.5 w-1.5 rounded-full bg-white" />
+        </span>
 
-        <div className="space-y-8">
-          {experience.map((job, i) => (
-            <Reveal key={job.company} delay={i * 0.05}>
-              <div className="relative pl-8 sm:pl-10">
-                <span className="absolute left-0 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-accent-gradient shadow-glow">
-                  {job.current && (
-                    <span className="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-lavender-400/60" />
-                  )}
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                </span>
+        <div className="glass overflow-hidden transition-shadow hover:shadow-lift">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="flex w-full items-start gap-4 p-6 text-left sm:p-7"
+          >
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 className="font-display text-xl font-semibold text-ink">
+                  {job.role}{" "}
+                  <span className="text-apricot-600">· {job.company}</span>
+                </h3>
+                <p className="shrink-0 font-mono text-xs text-ink-muted">
+                  {job.dates}
+                </p>
+              </div>
+              {job.location && (
+                <p className="mt-1 text-sm text-ink-muted">{job.location}</p>
+              )}
+              <p className="mt-3 text-sm font-medium text-ink-soft">
+                {job.summary}
+              </p>
+            </div>
 
-                <article className="glass p-6 transition-shadow hover:shadow-lift sm:p-7">
-                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                    <h3 className="font-display text-xl font-semibold text-ink">
-                      {job.role}{" "}
-                      <span className="text-lavender-600">· {job.company}</span>
-                    </h3>
-                    <p className="shrink-0 font-mono text-xs text-ink-muted">
-                      {job.dates}
-                    </p>
-                  </div>
-                  {job.location && (
-                    <p className="mt-1 text-sm text-ink-muted">{job.location}</p>
-                  )}
-                  <p className="mt-3 text-sm font-medium text-ink-soft">
-                    {job.summary}
-                  </p>
+            <ChevronDown
+              className={`mt-1 h-5 w-5 shrink-0 text-apricot-500 transition-transform duration-300 ${
+                open ? "rotate-180" : ""
+              }`}
+            />
+          </button>
 
-                  <ul className="mt-4 space-y-2.5">
+          <AnimatePresence initial={false}>
+            {open && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="border-t border-apricot-100 px-6 pb-6 pt-5 sm:px-7">
+                  <ul className="space-y-2.5">
                     {job.bullets.map((b) => (
                       <li
                         key={b.slice(0, 28)}
                         className="flex items-start gap-3 text-sm leading-relaxed text-ink-soft"
                       >
-                        <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-lavender-400" />
+                        <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-apricot-400" />
                         <span>{b}</span>
                       </li>
                     ))}
                   </ul>
-
                   <div className="mt-5 flex flex-wrap gap-2">
                     {job.stack.map((s) => (
                       <span key={s} className="chip">
@@ -59,12 +79,44 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
-                </article>
-              </div>
-            </Reveal>
-          ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-    </Section>
+    </Reveal>
+  );
+}
+
+export default function Experience() {
+  return (
+    <section id="experience" className="scroll-mt-24 py-20 sm:py-28">
+      <div className="container-page">
+        <Reveal>
+          <p className="section-label">
+            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+            Experience
+          </p>
+          <h2 className="heading">Where I&apos;ve built</h2>
+          <p className="mt-3 max-w-2xl text-sm text-ink-muted">
+            Roles across AI infrastructure, distributed backends, and data
+            systems. Tap any role to expand the details.
+          </p>
+        </Reveal>
+
+        <div className="relative mt-10">
+          <div
+            aria-hidden
+            className="absolute bottom-2 left-[7px] top-2 w-px bg-gradient-to-b from-apricot-300 via-apricot-200 to-transparent sm:left-[9px]"
+          />
+          <div className="space-y-5">
+            {experience.map((job, i) => (
+              <ExperienceItem key={job.company} job={job} index={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

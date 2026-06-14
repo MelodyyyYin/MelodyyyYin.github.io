@@ -28,15 +28,15 @@ export default function Hero() {
     >
       {/* Animated gradient blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-10 h-72 w-72 animate-blob-drift rounded-full bg-lavender-300/40 blur-3xl" />
-        <div className="absolute right-0 top-32 h-80 w-80 animate-blob-drift rounded-full bg-haze-400/30 blur-3xl [animation-delay:-6s]" />
-        <div className="absolute bottom-0 left-1/3 h-72 w-72 animate-blob-drift rounded-full bg-rose-300/30 blur-3xl [animation-delay:-12s]" />
+        <div className="absolute -left-24 top-10 h-72 w-72 animate-blob-drift rounded-full bg-apricot-300/40 blur-3xl" />
+        <div className="absolute right-0 top-32 h-80 w-80 animate-blob-drift rounded-full bg-sun-400/30 blur-3xl [animation-delay:-6s]" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 animate-blob-drift rounded-full bg-peach-300/30 blur-3xl [animation-delay:-12s]" />
       </div>
 
       <div className="container-page grid items-center gap-12 lg:grid-cols-[1.25fr_0.85fr] lg:gap-10">
         <motion.div variants={container} initial="hidden" animate="show" className="order-2 max-w-2xl lg:order-1">
           <motion.div variants={item} className="section-label">
-            <span className="h-1.5 w-1.5 rounded-full bg-lavender-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
             {profile.role}
           </motion.div>
 
@@ -74,7 +74,7 @@ export default function Hero() {
                 className={
                   primary
                     ? "group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-canvas shadow-lift transition-transform hover:-translate-y-0.5"
-                    : "group inline-flex items-center gap-2 rounded-full border border-lavender-200 bg-white/70 px-5 py-2.5 text-sm font-medium text-ink-soft shadow-soft backdrop-blur transition-all hover:-translate-y-0.5 hover:text-ink"
+                    : "group inline-flex items-center gap-2 rounded-full border border-apricot-200 bg-white/70 px-5 py-2.5 text-sm font-medium text-ink-soft shadow-soft backdrop-blur transition-all hover:-translate-y-0.5 hover:text-ink"
                 }
               >
                 <Icon className="h-4 w-4" />
@@ -96,7 +96,7 @@ export default function Hero() {
               aria-hidden
               className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-accent-gradient opacity-30 blur-2xl"
             />
-            <div className="rounded-[2rem] bg-gradient-to-br from-lavender-300 via-haze-400 to-rose-300 p-[3px] shadow-lift">
+            <div className="rounded-[2rem] bg-gradient-to-br from-apricot-300 via-sun-400 to-peach-300 p-[3px] shadow-lift">
               <div className="overflow-hidden rounded-[1.85rem] bg-canvas">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

@@ -1,62 +1,114 @@
-import { ArrowUpRight } from "lucide-react";
-import Section from "./Section";
-import Reveal from "./Reveal";
-import { projects } from "@/lib/content";
+"use client";
 
-export default function Projects() {
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ArrowUpRight } from "lucide-react";
+import Reveal from "./Reveal";
+import { projects, type Project } from "@/lib/content";
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Section id="projects" label="Projects" title="Systems I've designed">
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((p, i) => (
-          <Reveal key={p.name} delay={(i % 2) * 0.08}>
-            <article className="group flex h-full flex-col glass p-6 transition-shadow hover:shadow-lift">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-rose-500">
-                    {p.tag}
-                  </span>
-                  <h3 className="mt-1 font-display text-xl font-semibold text-ink">
-                    {p.name}
-                  </h3>
+    <Reveal delay={(index % 2) * 0.08}>
+      <article className="glass h-full overflow-hidden transition-shadow hover:shadow-lift">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className="flex w-full items-start gap-4 p-6 text-left"
+        >
+          <div className="min-w-0 flex-1">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-peach-500">
+              {project.tag}
+            </span>
+            <h3 className="mt-1 font-display text-xl font-semibold text-ink">
+              {project.name}
+            </h3>
+            <p className="mt-2 text-sm font-medium text-ink-soft">
+              {project.blurb}
+            </p>
+          </div>
+
+          <ChevronDown
+            className={`mt-1 h-5 w-5 shrink-0 text-apricot-500 transition-transform duration-300 ${
+              open ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="border-t border-apricot-100 px-6 pb-6 pt-5">
+                <ul className="space-y-2.5">
+                  {project.bullets.map((b) => (
+                    <li
+                      key={b.slice(0, 28)}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-ink-soft"
+                    >
+                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-apricot-400" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 flex flex-wrap items-center gap-2">
+                  {project.stack.map((s) => (
+                    <span key={s} className="chip">
+                      {s}
+                    </span>
+                  ))}
                 </div>
-                {p.link && (
+
+                {project.link && (
                   <a
-                    href={p.link.href}
+                    href={project.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${p.name} on ${p.link.label}`}
-                    className="shrink-0 rounded-full border border-lavender-200 bg-white/70 p-2 text-ink-soft transition-all hover:-translate-y-0.5 hover:text-lavender-600"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-apricot-600 link-underline"
                   >
+                    View on {project.link.label}
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                 )}
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </article>
+    </Reveal>
+  );
+}
 
-              <p className="mt-3 text-sm font-medium text-ink-soft">{p.blurb}</p>
+export default function Projects() {
+  return (
+    <section id="projects" className="scroll-mt-24 py-20 sm:py-28">
+      <div className="container-page">
+        <Reveal>
+          <p className="section-label">
+            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+            Projects
+          </p>
+          <h2 className="heading">Systems I&apos;ve designed</h2>
+          <p className="mt-3 max-w-2xl text-sm text-ink-muted">
+            Selected systems work in distributed infrastructure, backend, and
+            performance. Tap a project for the details.
+          </p>
+        </Reveal>
 
-              <ul className="mt-4 flex-1 space-y-2.5">
-                {p.bullets.map((b) => (
-                  <li
-                    key={b.slice(0, 28)}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-ink-soft"
-                  >
-                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-lavender-400" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <span key={s} className="chip">
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </article>
-          </Reveal>
-        ))}
+        <div className="mt-10 grid items-start gap-6 md:grid-cols-2">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.name} project={p} index={i} />
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

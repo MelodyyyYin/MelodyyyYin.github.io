@@ -43,7 +43,7 @@ export default function OpenSource() {
               href={openSource.upstream}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline text-sm font-medium text-lavender-600"
+              className="link-underline text-sm font-medium text-apricot-600"
             >
               sgl-project/sglang-omni →
             </a>

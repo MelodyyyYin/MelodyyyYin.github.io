@@ -9,33 +9,36 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#15131c", // near-black with a faint violet cast
-          soft: "#3a3548",
-          muted: "#6b6577",
+          DEFAULT: "#1f1813", // warm near-black
+          soft: "#4a3f37",
+          muted: "#8a7a6e",
         },
         canvas: {
-          DEFAULT: "#faf9fc", // off-white
-          soft: "#f3f1f7",
+          DEFAULT: "#fffaf5", // warm off-white
+          soft: "#fdf1e7",
           panel: "#ffffff",
         },
-        lavender: {
-          50: "#f6f4fb",
-          100: "#ece7f8",
-          200: "#dcd2f1",
-          300: "#c3b1e6",
-          400: "#a98fd6",
-          500: "#9070c4",
-          600: "#7857a8",
+        // primary accent — apricot / orange
+        apricot: {
+          50: "#fff7f0",
+          100: "#ffedde",
+          200: "#ffdcc2",
+          300: "#ffc196",
+          400: "#ff9f5a",
+          500: "#f5832f",
+          600: "#d3650f",
         },
-        rose: {
-          200: "#f2d9e0",
-          300: "#e7b9c6",
-          400: "#d894a8",
-          500: "#c47189",
+        // secondary — peach / coral
+        peach: {
+          200: "#ffe2d4",
+          300: "#ffc6ad",
+          400: "#ffa07a",
+          500: "#f5784d",
         },
-        haze: {
-          400: "#8ea2e8",
-          500: "#6f86d8",
+        // tertiary — golden / sun
+        sun: {
+          400: "#ffc266",
+          500: "#f5a623",
         },
       },
       fontFamily: {
@@ -45,14 +48,14 @@ const config: Config = {
       },
       backgroundImage: {
         "accent-gradient":
-          "linear-gradient(120deg, #9070c4 0%, #8ea2e8 45%, #d894a8 100%)",
+          "linear-gradient(120deg, #f5832f 0%, #ff9f5a 48%, #ffc266 100%)",
         "soft-radial":
-          "radial-gradient(60% 60% at 50% 0%, rgba(144,112,196,0.10) 0%, rgba(250,249,252,0) 70%)",
+          "radial-gradient(60% 60% at 50% 0%, rgba(245,131,47,0.12) 0%, rgba(255,250,245,0) 70%)",
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(21,19,28,0.04), 0 8px 30px rgba(21,19,28,0.06)",
-        lift: "0 2px 8px rgba(21,19,28,0.05), 0 18px 50px rgba(120,87,168,0.12)",
-        glow: "0 0 0 1px rgba(144,112,196,0.18), 0 18px 50px rgba(120,87,168,0.14)",
+        soft: "0 1px 2px rgba(31,24,19,0.04), 0 8px 30px rgba(31,24,19,0.06)",
+        lift: "0 2px 8px rgba(31,24,19,0.05), 0 18px 50px rgba(245,131,47,0.14)",
+        glow: "0 0 0 1px rgba(245,131,47,0.18), 0 18px 50px rgba(245,131,47,0.16)",
       },
       keyframes: {
         "blob-drift": {

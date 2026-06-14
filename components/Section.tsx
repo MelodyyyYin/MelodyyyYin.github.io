@@ -14,7 +14,7 @@ export default function Section({ id, label, title, children }: SectionProps) {
       <div className="container-page">
         <Reveal>
           <p className="section-label">
-            <span className="h-1.5 w-1.5 rounded-full bg-lavender-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
             {label}
           </p>
           <h2 className="heading">{title}</h2>

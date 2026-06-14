@@ -19,7 +19,7 @@ export default function About() {
 
         <Reveal delay={0.1} className="md:col-span-2">
           <div className="glass p-6">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-lavender-600">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-apricot-600">
               Focus areas
             </p>
             <ul className="mt-4 space-y-3">
