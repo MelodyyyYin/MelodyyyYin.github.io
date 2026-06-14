@@ -86,11 +86,22 @@ export const about = {
     "I'm an MSECE student at Carnegie Mellon University (graduating May 2027), and I graduated from UC San Diego with a double major in Mathematics–Computer Science and Cognitive Science (Machine Learning specialization). Across internships and open source, I've worked on distributed serving, gRPC backends, caching and consensus, RAG pipelines, and CI/benchmarking for multimodal LLM inference.",
   ],
   focus: [
-    "AI infrastructure & LLM serving",
-    "Distributed systems & consensus",
-    "Cloud infrastructure & backend platforms",
-    "Observability, reliability & performance",
+    { emoji: "🤖", label: "AI infrastructure & LLM serving", dot: "bg-apricot-500" },
+    { emoji: "🧩", label: "Distributed systems & consensus", dot: "bg-teal-500" },
+    { emoji: "☁️", label: "Cloud infrastructure & backend platforms", dot: "bg-sky-500" },
+    { emoji: "📊", label: "Observability, reliability & performance", dot: "bg-violet-500" },
   ],
+  interests: {
+    intro: "When I'm off the keyboard, you'll usually find me on a court, a course, or a mat. 🌿",
+    items: [
+      { emoji: "🎾", label: "Tennis", className: "border-emerald-200 bg-emerald-50 text-emerald-700" },
+      { emoji: "⛳", label: "Golf", className: "border-lime-200 bg-lime-50 text-lime-700" },
+      { emoji: "🏸", label: "Badminton", className: "border-sky-200 bg-sky-50 text-sky-700" },
+      { emoji: "🧘‍♀️", label: "Yoga", className: "border-violet-200 bg-violet-50 text-violet-700" },
+      { emoji: "🤸‍♀️", label: "Pilates", className: "border-rose-200 bg-rose-50 text-rose-700" },
+    ],
+    invite: "Always up for a match or a session — reach out and let's play together! 💪",
+  },
 };
 
 export type Experience = {
@@ -251,67 +262,48 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills: { group: string; items: string[] }[] = [
+export type SkillGroup = {
+  group: string;
+  emoji: string;
+  titleClass: string;
+  chipClass: string;
+  items: string[];
+};
+
+export const skills: SkillGroup[] = [
   {
     group: "Languages",
-    items: ["Python", "Java", "Go", "C++", "C", "JavaScript", "TypeScript"],
+    emoji: "💻",
+    titleClass: "text-violet-600",
+    chipClass: "border-violet-200 bg-violet-50 text-violet-700",
+    items: ["Python", "Go", "Java", "C++", "TypeScript"],
   },
   {
     group: "AI / LLM Systems",
+    emoji: "🤖",
+    titleClass: "text-apricot-600",
+    chipClass: "border-apricot-200 bg-apricot-50 text-apricot-600",
     items: [
       "LLM serving (SGLang-Omni)",
-      "Inference benchmarking",
       "RAG",
       "LangChain",
-      "Embeddings",
       "Vector DBs (Qdrant)",
-      "FastAPI",
-      "WebSockets",
+      "Inference benchmarking",
     ],
   },
   {
-    group: "Backend / Distributed Systems",
-    items: [
-      "gRPC",
-      "Protobuf",
-      "Netty",
-      "ZooKeeper",
-      "Raft consensus",
-      "RocksDB",
-      "Kafka",
-      "RocketMQ",
-      "RabbitMQ",
-      "Caching",
-      "Concurrency",
-      "Spring Boot / Cloud",
-    ],
+    group: "Backend / Distributed",
+    emoji: "⚙️",
+    titleClass: "text-teal-600",
+    chipClass: "border-teal-200 bg-teal-50 text-teal-700",
+    items: ["gRPC", "Kafka", "Redis", "Raft consensus", "RocksDB", "PostgreSQL"],
   },
   {
     group: "Cloud / Infrastructure",
-    items: [
-      "Docker",
-      "Docker Swarm",
-      "Kubernetes",
-      "AWS (EC2 · S3 · Lambda)",
-      "Nginx",
-      "Jenkins",
-      "CI/CD",
-      "Linux",
-      "Shell",
-      "Git",
-    ],
-  },
-  {
-    group: "Data / Storage",
-    items: [
-      "MySQL",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "Elasticsearch",
-      "Pandas",
-      "NumPy",
-    ],
+    emoji: "☁️",
+    titleClass: "text-sky-600",
+    chipClass: "border-sky-200 bg-sky-50 text-sky-700",
+    items: ["Docker", "Kubernetes", "AWS", "CI/CD", "Linux"],
   },
 ];
 

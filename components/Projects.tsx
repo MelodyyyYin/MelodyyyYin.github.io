@@ -96,7 +96,7 @@ export default function Projects() {
             <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
             Projects
           </p>
-          <h2 className="heading">Systems I&apos;ve designed</h2>
+          <h2 className="heading">🧱 Systems I&apos;ve designed</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-muted">
             Selected systems work in distributed infrastructure, backend, and
             performance. Tap a project for the details.

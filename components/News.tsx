@@ -3,9 +3,18 @@ import Section from "./Section";
 import Reveal from "./Reveal";
 import { news } from "@/lib/content";
 
+// Color-code each tag type for visual variety.
+const tagStyles: Record<string, string> = {
+  Incoming: "border-amber-300 bg-amber-50 text-amber-700",
+  "Open source": "border-violet-200 bg-violet-50 text-violet-700",
+  "New role": "border-teal-200 bg-teal-50 text-teal-700",
+  Education: "border-sky-200 bg-sky-50 text-sky-700",
+  Milestone: "border-rose-200 bg-rose-50 text-rose-700",
+};
+
 export default function News() {
   return (
-    <Section id="news" label="News" title="Recent updates">
+    <Section id="news" label="News" title="📰 Recent updates">
       <ol className="space-y-3">
         {news.map((n, i) => (
           <Reveal key={n.text} delay={i * 0.05}>
@@ -31,9 +40,8 @@ export default function News() {
 
               <span
                 className={`shrink-0 self-start rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide sm:self-center ${
-                  n.highlight
-                    ? "border-apricot-300 bg-white/70 text-apricot-600"
-                    : "border-canvas-soft bg-canvas-soft/70 text-ink-muted"
+                  tagStyles[n.tag] ??
+                  "border-canvas-soft bg-canvas-soft/70 text-ink-muted"
                 }`}
               >
                 {n.tag}

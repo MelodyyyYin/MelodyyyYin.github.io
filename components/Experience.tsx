@@ -110,7 +110,7 @@ export default function Experience() {
             <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
             Experience
           </p>
-          <h2 className="heading">Where I&apos;ve built</h2>
+          <h2 className="heading">🚀 Where I&apos;ve built</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-muted">
             Roles across AI infrastructure, distributed backends, and data
             systems. Tap any role to expand the details.

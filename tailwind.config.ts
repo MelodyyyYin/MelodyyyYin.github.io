@@ -4,6 +4,9 @@ const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    // content.ts holds literal Tailwind class strings (skill/interest colors),
+    // so it must be scanned too or those utilities get purged.
+    "./lib/**/*.{js,ts}",
   ],
   theme: {
     extend: {
