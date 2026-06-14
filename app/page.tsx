@@ -4,7 +4,6 @@ import About from "@/components/About";
 import News from "@/components/News";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
-import OpenSource from "@/components/OpenSource";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Affiliations from "@/components/Affiliations";
@@ -20,7 +19,6 @@ export default function Home() {
         <News />
         <Experience />
         <Projects />
-        <OpenSource />
         <Skills />
         <Education />
         <Affiliations />

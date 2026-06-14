@@ -7,14 +7,21 @@ export const profile = {
   name: "Yue (Melody) Yin",
   shortName: "Melody Yin",
   role: "Software Engineer · AI Infrastructure & Distributed Systems",
+  intro:
+    "M.S. student at Carnegie Mellon, Software Engineering Intern at ServiceNow, and open-source contributor to SGLang-Omni.",
   tagline:
-    "I build scalable backend and AI systems across cloud infrastructure, distributed serving, LLM inference, and observability.",
+    "I build reliable infrastructure for AI systems — across cloud, distributed serving, LLM inference, and observability.",
   location: "United States · No sponsorship required",
   email: "melodyyin31@gmail.com",
   github: "https://github.com/MelodyyyYin",
   linkedin: "https://www.linkedin.com/in/yue-yin-ucsd2025/",
   resume: "/Melody_Yin_Resume.pdf",
   photo: "/melody.jpg",
+  highlights: [
+    { icon: "grad", label: "M.S. @ Carnegie Mellon" },
+    { icon: "work", label: "SWE Intern @ ServiceNow" },
+    { icon: "oss", label: "Open source @ SGLang-Omni" },
+  ],
 };
 
 export type NewsItem = {
@@ -33,7 +40,7 @@ export const news: NewsItem[] = [
   },
   {
     date: "Jun 2026",
-    text: "Began contributing to sglang-omni, an open-source serving framework for multimodal LLMs.",
+    text: "Began contributing to SGLang-Omni, an open-source serving framework for multimodal LLMs.",
     tag: "Open source",
   },
   {
@@ -95,6 +102,7 @@ export type Experience = {
   stack: string[];
   location?: string;
   current?: boolean;
+  link?: { href: string; label: string };
 };
 
 export const experience: Experience[] = [
@@ -114,16 +122,21 @@ export const experience: Experience[] = [
     stack: ["Cloud Infrastructure", "Observability", "Agentic Workflows"],
   },
   {
-    company: "sglang-omni",
+    company: "SGLang-Omni",
     role: "Open Source Contributor",
     dates: "Jun 2026 – Present",
     current: true,
     summary:
-      "Contribute to sglang-omni, a high-performance serving framework for multimodal LLMs.",
+      "Contribute to SGLang-Omni, a high-performance serving framework for multimodal LLMs.",
     bullets: [
-      "Contribute to sglang-omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads.",
+      "Contribute to SGLang-Omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads.",
+      "Merged work includes a Qwen3-ASR CI gate with a concurrency-scaling benchmark and verified cookbook documentation for serving workflows.",
     ],
     stack: ["LLM Serving", "Python", "CI/CD", "Benchmarking"],
+    link: {
+      href: "https://github.com/MelodyyyYin/sglang-omni",
+      label: "GitHub",
+    },
   },
   {
     company: "HU MEI USA",
@@ -238,19 +251,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const openSource = {
-  intro:
-    "I contribute to sglang-omni — a high-performance, multi-stage pipeline framework for serving omni / multimodal LLMs. My work focuses on serving reliability, CI, and inference benchmarking.",
-  upstream: "https://github.com/sgl-project/sglang-omni",
-  repo: "https://github.com/MelodyyyYin/sglang-omni",
-  areas: [
-    "Serving reliability",
-    "CI & benchmarking",
-    "Multimodal LLM inference",
-    "Developer tooling",
-  ],
-};
-
 export const skills: { group: string; items: string[] }[] = [
   {
     group: "Languages",
@@ -259,7 +259,7 @@ export const skills: { group: string; items: string[] }[] = [
   {
     group: "AI / LLM Systems",
     items: [
-      "LLM serving (sglang-omni)",
+      "LLM serving (SGLang-Omni)",
       "Inference benchmarking",
       "RAG",
       "LangChain",

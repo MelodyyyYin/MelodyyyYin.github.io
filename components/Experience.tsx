@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { experience, type Experience as Job } from "@/lib/content";
 
@@ -79,6 +79,18 @@ function ExperienceItem({ job, index }: { job: Job; index: number }) {
                       </span>
                     ))}
                   </div>
+
+                  {job.link && (
+                    <a
+                      href={job.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-apricot-600"
+                    >
+                      View on {job.link.label}
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             )}
