@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#news", label: "News" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#interests", label: "Interests" },
+  { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#education", label: "Education" },
+  { href: "/#interests", label: "Interests" },
+  { href: "/notes", label: "Notes" },
 ];
 
 export default function Navbar() {
@@ -36,22 +37,22 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-page flex h-16 items-center justify-between">
-        <a
-          href="#top"
+        <Link
+          href="/"
           className="font-display text-lg font-semibold tracking-tight text-ink"
         >
           Melody <span className="gradient-text">Yin</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="link-underline text-sm text-ink-soft transition-colors hover:text-ink"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -79,14 +80,14 @@ export default function Navbar() {
         <div className="border-t border-white/60 bg-canvas/95 backdrop-blur-md md:hidden">
           <div className="container-page flex flex-col py-3">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="py-2 text-sm text-ink-soft hover:text-ink"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

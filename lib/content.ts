@@ -248,6 +248,22 @@ export const projects: Project[] = [
     stack: ["Java", "Raft", "RocksDB", "MVCC", "Consistent Hashing"],
   },
   {
+    name: "Systems Programming in C",
+    tag: "Low-Level Systems",
+    blurb:
+      "Low-level systems labs from CMU 18-613 — a memory allocator, a concurrent caching web proxy, a cache simulator, and a Unix shell.",
+    bullets: [
+      "Implemented an explicit-free-list malloc/free/realloc allocator with block coalescing, tuned for throughput and memory utilization.",
+      "Built a concurrent web proxy with a thread-safe LRU cache, plus a cache simulator and a cache-aware matrix transpose.",
+      "Wrote a Unix shell with job control — signal handling, process groups, and foreground/background execution.",
+    ],
+    stack: ["C", "Concurrency", "Memory Management", "Linux"],
+    link: {
+      href: "https://github.com/MelodyyyYin/Systems-Programming-Projects",
+      label: "GitHub",
+    },
+  },
+  {
     name: "MyRPC — Distributed RPC Framework",
     tag: "Backend Infrastructure",
     blurb:
@@ -278,38 +294,36 @@ export const skills: SkillGroup[] = [
     items: ["C++", "Go", "Python", "Java", "TypeScript"],
   },
   {
-    group: "AI / LLM Systems",
+    group: "AI / LLM Systems & GPU",
     emoji: "🤖",
     titleClass: "text-apricot-600",
     chipClass: "border-apricot-200 bg-apricot-50 text-apricot-600",
     items: [
       "LLM serving (SGLang-Omni)",
       "MoE serving",
+      "CUDA / GEMM kernels",
       "Inference benchmarking",
       "RAG",
       "Vector DBs (Qdrant)",
     ],
   },
   {
-    group: "GPU / Performance",
-    emoji: "⚡",
-    titleClass: "text-emerald-600",
-    chipClass: "border-emerald-200 bg-emerald-50 text-emerald-700",
-    items: ["CUDA", "GEMM kernels", "Profiling & tuning", "Benchmarking"],
-  },
-  {
-    group: "Backend / Distributed",
+    group: "Backend & Cloud Infra",
     emoji: "⚙️",
     titleClass: "text-teal-600",
     chipClass: "border-teal-200 bg-teal-50 text-teal-700",
-    items: ["gRPC", "Kafka", "Redis", "Raft consensus", "RocksDB", "PostgreSQL"],
-  },
-  {
-    group: "Cloud / Infrastructure",
-    emoji: "☁️",
-    titleClass: "text-sky-600",
-    chipClass: "border-sky-200 bg-sky-50 text-sky-700",
-    items: ["Docker", "Kubernetes", "AWS", "CI/CD", "Linux"],
+    items: [
+      "gRPC",
+      "Kafka",
+      "Redis",
+      "Raft consensus",
+      "RocksDB",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "CI/CD",
+      "Linux",
+    ],
   },
 ];
 
