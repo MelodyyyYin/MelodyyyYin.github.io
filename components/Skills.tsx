@@ -5,32 +5,35 @@ import { skills } from "@/lib/content";
 export default function Skills() {
   return (
     <Section id="skills" label="Skills" title="🛠️ Tools & technologies">
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((group, i) => (
-          <Reveal key={group.group} delay={(i % 2) * 0.06}>
-            <div className="glass h-full p-6">
-              <h3
-                className={`flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] ${group.titleClass}`}
-              >
-                <span aria-hidden className="text-base">
-                  {group.emoji}
+      <Reveal>
+        <div className="divide-y divide-apricot-100/70 rounded-2xl border border-apricot-100/70 bg-white/50 backdrop-blur-md">
+          {skills.map((group) => (
+            <div
+              key={group.group}
+              className="flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:gap-4 sm:px-6"
+            >
+              <div className="flex shrink-0 items-center gap-2 sm:w-52">
+                <span aria-hidden>{group.emoji}</span>
+                <span
+                  className={`font-mono text-xs uppercase tracking-[0.14em] ${group.titleClass}`}
+                >
+                  {group.group}
                 </span>
-                {group.group}
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+              </div>
+              <div className="flex flex-wrap gap-1.5">
                 {group.items.map((s) => (
                   <span
                     key={s}
-                    className={`rounded-lg border px-3 py-1.5 text-sm transition-transform hover:-translate-y-0.5 ${group.chipClass}`}
+                    className={`rounded-md border px-2.5 py-0.5 text-xs ${group.chipClass}`}
                   >
                     {s}
                   </span>
                 ))}
               </div>
             </div>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
     </Section>
   );
 }
