@@ -34,7 +34,7 @@ export default function AboutNews() {
             <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
             About
           </p>
-          <h2 className="heading">✨ Infrastructure for AI systems</h2>
+          <h2 className="heading">✨ A bit about me</h2>
         </Reveal>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-12">

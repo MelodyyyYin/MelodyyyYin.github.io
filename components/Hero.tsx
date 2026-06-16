@@ -52,13 +52,10 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl"
           >
-            Software Engineer focused on{" "}
-            <span className="font-medium text-ink">AI Infrastructure</span>,{" "}
-            <span className="font-medium text-ink">LLM Systems</span>, and{" "}
-            <span className="font-medium text-ink">Distributed Systems</span>.
+            {profile.summary}
           </motion.p>
 
-          <motion.div variants={item} className="mt-6 flex flex-wrap gap-2.5">
+          <motion.div variants={item} className="mt-7 flex flex-wrap gap-2.5">
             {profile.highlights.map((h) => (
               <span
                 key={h.label}
@@ -75,13 +72,6 @@ export default function Hero() {
               </span>
             ))}
           </motion.div>
-
-          <motion.p
-            variants={item}
-            className="mt-5 max-w-2xl leading-relaxed text-ink-muted"
-          >
-            {profile.tagline}
-          </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap gap-3">
             {ctas.map(({ href, label, icon: Icon, primary, external }) => (

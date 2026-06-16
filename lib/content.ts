@@ -6,11 +6,9 @@
 export const profile = {
   name: "Yue (Melody) Yin",
   shortName: "Melody Yin",
-  role: "Software Engineer · AI Infrastructure & Distributed Systems",
-  intro:
-    "M.S. student at Carnegie Mellon, Software Engineering Intern at ServiceNow, and open-source contributor to SGLang-Omni.",
-  tagline:
-    "I build reliable infrastructure for AI systems — across cloud, distributed serving, LLM inference, and observability.",
+  role: "Software Engineer",
+  summary:
+    "I build the infrastructure that makes AI systems fast, reliable, and production-ready — across LLM serving, distributed systems, and cloud.",
   location: "United States · No sponsorship required",
   email: "melodyyin31@gmail.com",
   github: "https://github.com/MelodyyyYin",
@@ -80,11 +78,11 @@ export const affiliations = [
 ];
 
 export const about = {
-  lead: "I'm a software engineer focused on building reliable infrastructure for AI systems.",
+  lead: "I'm drawn to the layer beneath the model — the systems that decide whether AI actually holds up in production.",
   // **double asterisks** render as bold in the About section.
   paragraphs: [
-    "My work spans **LLM serving**, **distributed systems**, **cloud infrastructure**, and **performance** — the layer that keeps AI applications fast, correct, and **production-ready** under load.",
-    "I'm an **MSECE student at Carnegie Mellon** (grad. May 2027) and a **UC San Diego** alum (Math–CS & Cognitive Science, ML). I've built **gRPC backends**, **consensus & caching**, **RAG pipelines**, and **CI/benchmarking for multimodal LLM inference**.",
+    "I'm finishing my **M.S. in ECE at Carnegie Mellon**, after a Math–Computer Science and Cognitive Science degree at **UC San Diego**. Right now I'm a software engineering intern at **ServiceNow**, working on cloud infrastructure and observability, and I contribute to **SGLang-Omni**, an open-source serving framework for multimodal LLMs.",
+    "Along the way I've built **Go & gRPC backends**, a **Multi-Raft key–value store**, **RAG pipelines**, and **CI and benchmarks for LLM inference**. I'm happiest with problems where correctness and latency both matter — consensus, caching, and the trade-offs that only show up under load — and I care about systems that stay observable and predictable as they scale.",
   ],
   focus: [
     { emoji: "🤖", label: "AI infrastructure & LLM serving", dot: "bg-apricot-500" },
