@@ -57,8 +57,10 @@ export default function Hero() {
 
           <motion.div variants={item} className="mt-7 flex flex-wrap gap-2.5">
             {profile.highlights.map((h) => (
-              <span
+              <motion.span
                 key={h.label}
+                whileHover={{ y: -3, scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 320, damping: 18 }}
                 className="inline-flex items-center gap-2 rounded-full border border-apricot-200 bg-white/70 py-1.5 pl-1.5 pr-3.5 text-sm font-medium text-ink-soft shadow-soft backdrop-blur"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -69,7 +71,7 @@ export default function Hero() {
                   className="h-5 w-5 rounded-[6px] object-contain ring-1 ring-black/5"
                 />
                 {h.label}
-              </span>
+              </motion.span>
             ))}
           </motion.div>
 

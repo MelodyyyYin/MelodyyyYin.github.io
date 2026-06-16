@@ -66,30 +66,6 @@ export default function AboutNews() {
                 ))}
               </ul>
             </div>
-
-            {/* Interests / hobbies */}
-            <div className="mt-6 rounded-2xl border border-apricot-100 bg-gradient-to-br from-apricot-50/80 to-rose-50/60 p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-apricot-600">
-                🌸 Beyond the keyboard
-              </p>
-              <p className="mt-3 leading-relaxed text-ink-soft">
-                {about.interests.intro}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {about.interests.items.map((it) => (
-                  <span
-                    key={it.label}
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium ${it.className}`}
-                  >
-                    <span aria-hidden>{it.emoji}</span>
-                    {it.label}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 text-sm font-medium text-ink-soft">
-                {about.interests.invite}
-              </p>
-            </div>
           </Reveal>
 
           {/* RIGHT — News */}
