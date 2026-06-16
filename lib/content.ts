@@ -311,6 +311,7 @@ export type Education = {
   degree: string;
   dates: string;
   detail?: string;
+  logo?: string;
 };
 
 export const education: Education[] = [
@@ -319,6 +320,7 @@ export const education: Education[] = [
     degree: "M.S. in Electrical & Computer Engineering (MSECE)",
     dates: "Jan 2026 – May 2027",
     detail: "Current graduate student.",
+    logo: "/logos/cmu-icon.png",
   },
   {
     school: "University of California, San Diego",
@@ -326,5 +328,6 @@ export const education: Education[] = [
       "B.S. Mathematics–Computer Science · B.S. Cognitive Science (Machine Learning specialization)",
     dates: "Sep 2021 – Jun 2025",
     detail: "GPA 3.8 / 4.0 · Provost Honors (6×) · PACE Fellowships ’23, ’24",
+    logo: "/logos/ucsd-icon.jpg",
   },
 ];
