@@ -137,15 +137,15 @@ export const experience: Experience[] = [
     dates: "Jun 2026 – Present",
     current: true,
     summary:
-      "Contribute to SGLang-Omni, a high-performance serving framework for multimodal LLMs.",
+      "Contribute to SGLang-Omni, a high-performance serving framework for multimodal LLMs — adding model support and inference benchmarking.",
     bullets: [
-      "Contribute to SGLang-Omni — serving reliability, CI, and inference benchmarking for multimodal LLM workloads.",
-      "Merged work includes a Qwen3-ASR CI gate with a concurrency-scaling benchmark and verified cookbook documentation for serving workflows.",
+      "Added native serving for Zyphra ZONOS2, a 16-expert MoE text-to-speech model (9-codebook DAC audio @ 44.1 kHz, zero-shot voice cloning), into the multi-stage TTS pipeline — full model, weight loader, and sampler (~4.5K LOC), with greedy decode verified frame-for-frame against the reference. (PR #779)",
+      "Built a concurrency-scaling benchmark and CI gate for Qwen3-ASR inference to track throughput and latency under load, and improved router resilience against transient worker failures. (PRs #647, #628)",
     ],
-    stack: ["LLM Serving", "Python", "CI/CD", "Benchmarking"],
+    stack: ["LLM Serving", "MoE", "PyTorch", "Python", "Benchmarking"],
     link: {
-      href: "https://github.com/MelodyyyYin/sglang-omni",
-      label: "GitHub",
+      href: "https://github.com/sgl-project/sglang-omni/pull/779",
+      label: "PR #779",
     },
   },
   {
@@ -221,6 +221,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Blackwell GEMM Kernel Optimization",
+    tag: "GPU / Performance",
+    blurb:
+      "Low-level GEMM kernel optimization on NVIDIA's Blackwell architecture — the matmul primitive under LLM inference and training.",
+    bullets: [
+      "Optimized a GEMM kernel for NVIDIA Blackwell, applying shared-memory tiling with double-buffered global→shared staging and warp-level scheduling to raise arithmetic intensity and hide memory latency.",
+      "Profiled and tuned the memory hierarchy (global → shared → registers) to cut stalls and improve sustained throughput over a naive baseline.",
+    ],
+    stack: ["CUDA", "C++", "GEMM", "GPU Performance"],
+    link: {
+      href: "https://github.com/MelodyyyYin/assignment-tirx-gemm",
+      label: "GitHub",
+    },
+  },
+  {
     name: "Distributed Key–Value Store",
     tag: "Distributed Systems",
     blurb:
@@ -244,21 +259,6 @@ export const projects: Project[] = [
     ],
     stack: ["Java", "Netty", "ZooKeeper", "Protobuf", "Spring"],
   },
-  {
-    name: "Blackwell GEMM Kernel Optimization",
-    tag: "GPU / Performance",
-    blurb:
-      "Low-level GEMM kernel optimization targeting NVIDIA's Blackwell architecture.",
-    bullets: [
-      "Explored GEMM kernel optimization for NVIDIA Blackwell GPUs, the matrix-multiply primitive underlying LLM inference and training.",
-      "Focused on tiling, memory-hierarchy use, and throughput tuning for high-performance numerical kernels.",
-    ],
-    stack: ["CUDA", "GPU Kernels", "Performance"],
-    link: {
-      href: "https://github.com/MelodyyyYin/assignment-tirx-gemm",
-      label: "GitHub",
-    },
-  },
 ];
 
 export type SkillGroup = {
@@ -275,7 +275,7 @@ export const skills: SkillGroup[] = [
     emoji: "💻",
     titleClass: "text-violet-600",
     chipClass: "border-violet-200 bg-violet-50 text-violet-700",
-    items: ["Python", "Go", "Java", "C++", "TypeScript"],
+    items: ["C++", "Go", "Python", "Java", "TypeScript"],
   },
   {
     group: "AI / LLM Systems",
@@ -284,11 +284,18 @@ export const skills: SkillGroup[] = [
     chipClass: "border-apricot-200 bg-apricot-50 text-apricot-600",
     items: [
       "LLM serving (SGLang-Omni)",
-      "RAG",
-      "LangChain",
-      "Vector DBs (Qdrant)",
+      "MoE serving",
       "Inference benchmarking",
+      "RAG",
+      "Vector DBs (Qdrant)",
     ],
+  },
+  {
+    group: "GPU / Performance",
+    emoji: "⚡",
+    titleClass: "text-emerald-600",
+    chipClass: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    items: ["CUDA", "GEMM kernels", "Profiling & tuning", "Benchmarking"],
   },
   {
     group: "Backend / Distributed",

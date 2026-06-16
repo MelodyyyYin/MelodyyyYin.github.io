@@ -11,12 +11,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <Reveal delay={(index % 2) * 0.08}>
-      <article className="glass h-full overflow-hidden transition-shadow hover:shadow-lift">
+      <article className="glass h-full overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift">
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="flex w-full items-start gap-4 p-6 text-left"
+          aria-label={`${open ? "Collapse" : "Expand"} ${project.name}`}
+          className="group flex w-full cursor-pointer items-start gap-4 p-6 text-left"
         >
           <div className="min-w-0 flex-1">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-peach-500">
@@ -30,11 +31,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </p>
           </div>
 
-          <ChevronDown
-            className={`mt-1 h-5 w-5 shrink-0 text-apricot-500 transition-transform duration-300 ${
-              open ? "rotate-180" : ""
-            }`}
-          />
+          <span
+            aria-hidden
+            className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-apricot-50 text-apricot-600 ring-1 ring-apricot-100 transition-all duration-300 group-hover:bg-apricot-100 group-hover:ring-apricot-200"
+          >
+            <ChevronDown
+              className={`h-4 w-4 transition-transform duration-300 ${
+                open ? "rotate-180" : ""
+              }`}
+            />
+          </span>
         </button>
 
         <AnimatePresence initial={false}>
@@ -99,7 +105,7 @@ export default function Projects() {
           <h2 className="heading">🧱 Systems I&apos;ve designed</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-muted">
             Selected systems work in distributed infrastructure, backend, and
-            performance. Tap a project for the details.
+            performance. Click or tap any card for the details.
           </p>
         </Reveal>
 

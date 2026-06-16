@@ -19,12 +19,13 @@ function ExperienceItem({ job, index }: { job: Job; index: number }) {
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
         </span>
 
-        <div className="glass overflow-hidden transition-shadow hover:shadow-lift">
+        <div className="glass overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            className="flex w-full items-start gap-4 p-6 text-left sm:p-7"
+            aria-label={`${open ? "Collapse" : "Expand"} ${job.role} at ${job.company}`}
+            className="group flex w-full cursor-pointer items-start gap-4 p-6 text-left sm:p-7"
           >
             <div className="min-w-0 flex-1">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
@@ -44,11 +45,16 @@ function ExperienceItem({ job, index }: { job: Job; index: number }) {
               </p>
             </div>
 
-            <ChevronDown
-              className={`mt-1 h-5 w-5 shrink-0 text-apricot-500 transition-transform duration-300 ${
-                open ? "rotate-180" : ""
-              }`}
-            />
+            <span
+              aria-hidden
+              className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-apricot-50 text-apricot-600 ring-1 ring-apricot-100 transition-all duration-300 group-hover:bg-apricot-100 group-hover:ring-apricot-200"
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ${
+                  open ? "rotate-180" : ""
+                }`}
+              />
+            </span>
           </button>
 
           <AnimatePresence initial={false}>
@@ -113,7 +119,7 @@ export default function Experience() {
           <h2 className="heading">🚀 Where I&apos;ve built</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-muted">
             Roles across AI infrastructure, distributed backends, and data
-            systems. Tap any role to expand the details.
+            systems. Click or tap any card to expand the details.
           </p>
         </Reveal>
 
