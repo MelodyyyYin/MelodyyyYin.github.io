@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, Send } from "lucide-react";
 import Reveal from "./Reveal";
 import { profile } from "@/lib/content";
 
@@ -13,16 +13,16 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden border-t border-white/60 py-20"
+      className="relative overflow-hidden border-t border-iris-100/70 py-20"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-apricot-200/40 blur-3xl" />
+        <div className="absolute left-1/2 top-0 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-iris-200/40 blur-3xl" />
       </div>
 
       <div className="container-page text-center">
         <Reveal>
           <p className="section-label justify-center">
-            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+            <Send className="h-3.5 w-3.5" aria-hidden />
             Get in touch
           </p>
           <h2 className="heading">
@@ -48,7 +48,7 @@ export default function Footer() {
                 href={href}
                 aria-label={label}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-apricot-200 bg-white/70 text-ink-soft shadow-soft backdrop-blur transition-all hover:-translate-y-0.5 hover:text-apricot-600"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-iris-100 bg-white/70 text-ink-soft shadow-soft backdrop-blur transition-all hover:-translate-y-0.5 hover:text-iris-600"
               >
                 <Icon className="h-5 w-5" />
               </a>

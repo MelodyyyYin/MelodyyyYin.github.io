@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FlaskConical } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAllNotes, formatDate } from "@/lib/notes";
@@ -27,10 +27,10 @@ export default function NotesPage() {
         </Link>
 
         <p className="section-label mt-8">
-          <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+          <FlaskConical className="h-3.5 w-3.5" aria-hidden />
           Notes
         </p>
-        <h1 className="heading">🧪 Notes &amp; hardcore logs</h1>
+        <h1 className="heading">Notes &amp; hardcore logs</h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
           Short, technical notes from reading source, debugging distributed
           systems, and profiling GPU kernels. A few are still in progress — more

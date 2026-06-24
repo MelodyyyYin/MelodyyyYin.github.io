@@ -3,7 +3,7 @@ import { affiliations } from "@/lib/content";
 
 export default function Affiliations() {
   return (
-    <section className="border-t border-white/60 py-16">
+    <section className="border-t border-iris-100/70 py-16">
       <div className="container-page">
         <Reveal>
           <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">

@@ -1,5 +1,14 @@
 import { Fragment } from "react";
-import { Sparkles } from "lucide-react";
+import {
+  Sparkles,
+  Newspaper,
+  Target,
+  Cpu,
+  Network,
+  Cloud,
+  Activity,
+  type LucideIcon,
+} from "lucide-react";
 import Reveal from "./Reveal";
 import { about, news } from "@/lib/content";
 
@@ -16,13 +25,20 @@ function renderBold(text: string) {
   );
 }
 
+const focusIcons: Record<string, LucideIcon> = {
+  cpu: Cpu,
+  network: Network,
+  cloud: Cloud,
+  activity: Activity,
+};
+
 // Color-code each News tag type.
 const tagStyles: Record<string, string> = {
   Incoming: "border-amber-300 bg-amber-50 text-amber-700",
-  "Open source": "border-violet-200 bg-violet-50 text-violet-700",
-  "New role": "border-teal-200 bg-teal-50 text-teal-700",
-  Education: "border-sky-200 bg-sky-50 text-sky-700",
-  Milestone: "border-rose-200 bg-rose-50 text-rose-700",
+  "Open source": "border-iris-200 bg-iris-50 text-iris-700",
+  "New role": "border-ice-200 bg-ice-50 text-ice-700",
+  Education: "border-indigo-200 bg-indigo-50 text-indigo-700",
+  Milestone: "border-aqua-300 bg-aqua-200/40 text-aqua-500",
 };
 
 export default function AboutNews() {
@@ -31,10 +47,10 @@ export default function AboutNews() {
       <div className="container-page">
         <Reveal>
           <p className="section-label">
-            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
             About
           </p>
-          <h2 className="heading">✨ A bit about me</h2>
+          <h2 className="heading">A bit about me</h2>
         </Reveal>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-12">
@@ -49,21 +65,29 @@ export default function AboutNews() {
               ))}
             </div>
 
-            {/* Focus areas — compact */}
-            <div className="mt-6">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-apricot-600">
-                🎯 Focus areas
+            {/* Focus areas */}
+            <div className="mt-7">
+              <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-iris-600">
+                <Target className="h-3.5 w-3.5" aria-hidden />
+                Focus areas
               </p>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {about.focus.map((f) => (
-                  <li
-                    key={f.label}
-                    className="flex items-start gap-2 text-sm text-ink-soft"
-                  >
-                    <span aria-hidden>{f.emoji}</span>
-                    <span>{f.label}</span>
-                  </li>
-                ))}
+              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                {about.focus.map((f) => {
+                  const Icon = focusIcons[f.icon] ?? Cpu;
+                  return (
+                    <li
+                      key={f.label}
+                      className="flex items-center gap-2.5 text-sm text-ink-soft"
+                    >
+                      <span
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${f.tint}`}
+                      >
+                        <Icon className="h-4 w-4" aria-hidden />
+                      </span>
+                      <span>{f.label}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </Reveal>
@@ -71,21 +95,22 @@ export default function AboutNews() {
           {/* RIGHT — News */}
           <Reveal delay={0.1}>
             <div id="news" className="scroll-mt-24">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-apricot-600">
-                📰 Recent updates
+              <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-iris-600">
+                <Newspaper className="h-3.5 w-3.5" aria-hidden />
+                Recent updates
               </p>
               <ol className="mt-4 space-y-3">
                 {news.map((n) => (
                   <li
                     key={n.text}
-                    className={`rounded-2xl border p-4 backdrop-blur-md ${
+                    className={`rounded-2xl border p-4 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 ${
                       n.highlight
-                        ? "border-apricot-200 bg-apricot-50/70 shadow-glow"
-                        : "border-white/60 bg-white/70 shadow-soft"
+                        ? "border-iris-200 bg-iris-50/70 shadow-glow"
+                        : "border-white/70 bg-white/70 shadow-soft hover:shadow-lift"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-xs font-medium text-apricot-600">
+                      <span className="font-mono text-xs font-medium text-iris-600">
                         {n.date}
                       </span>
                       <span
@@ -99,7 +124,7 @@ export default function AboutNews() {
                     </div>
                     <p className="mt-2 text-sm leading-relaxed text-ink-soft">
                       {n.highlight && (
-                        <Sparkles className="mr-1.5 inline h-4 w-4 -translate-y-0.5 text-apricot-500" />
+                        <Sparkles className="mr-1.5 inline h-4 w-4 -translate-y-0.5 text-iris-500" />
                       )}
                       {n.text}
                     </p>

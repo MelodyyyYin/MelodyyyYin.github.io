@@ -5,7 +5,12 @@ import { education } from "@/lib/content";
 
 export default function Education() {
   return (
-    <Section id="education" label="Education" title="🎓 Academic background">
+    <Section
+      id="education"
+      label="Education"
+      title="Academic background"
+      icon={GraduationCap}
+    >
       <div className="grid gap-5 md:grid-cols-2">
         {education.map((e, i) => (
           <Reveal key={e.school} delay={i * 0.06}>

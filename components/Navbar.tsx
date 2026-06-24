@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FileText } from "lucide-react";
+import { profile } from "@/lib/content";
 
 const links = [
   { href: "/#about", label: "About" },
@@ -32,7 +34,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/60 bg-canvas/80 backdrop-blur-md"
+          ? "border-b border-iris-100/80 bg-canvas/80 backdrop-blur-md"
           : "border-b border-transparent"
       }`}
     >
@@ -54,13 +56,22 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-canvas shadow-soft transition-transform hover:-translate-y-0.5"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Résumé
+          </a>
         </div>
 
         <button
           aria-label="Toggle navigation"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/60 bg-white/60 text-ink-soft backdrop-blur md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-iris-100 bg-white/70 text-ink-soft backdrop-blur md:hidden"
         >
           <div className="space-y-1.5">
             <span
@@ -77,7 +88,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/60 bg-canvas/95 backdrop-blur-md md:hidden">
+        <div className="border-t border-iris-100/80 bg-canvas/95 backdrop-blur-md md:hidden">
           <div className="container-page flex flex-col py-3">
             {links.map((l) => (
               <Link
@@ -89,6 +100,16 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-canvas"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              Résumé
+            </a>
           </div>
         </div>
       )}

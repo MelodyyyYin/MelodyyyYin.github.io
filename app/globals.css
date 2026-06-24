@@ -16,10 +16,25 @@ html {
 body {
   @apply bg-canvas text-ink antialiased;
   background-image:
-    radial-gradient(50% 38% at 18% 0%, rgba(245, 131, 47, 0.13) 0%, rgba(255, 250, 245, 0) 70%),
-    radial-gradient(45% 36% at 88% 6%, rgba(255, 160, 122, 0.12) 0%, rgba(255, 250, 245, 0) 72%),
-    radial-gradient(55% 40% at 50% 100%, rgba(255, 194, 102, 0.12) 0%, rgba(255, 250, 245, 0) 75%);
+    radial-gradient(48% 38% at 16% -2%, rgba(125, 92, 240, 0.16) 0%, rgba(246, 247, 252, 0) 70%),
+    radial-gradient(42% 34% at 88% 4%, rgba(58, 131, 230, 0.14) 0%, rgba(246, 247, 252, 0) 72%),
+    radial-gradient(55% 42% at 50% 102%, rgba(86, 205, 212, 0.12) 0%, rgba(246, 247, 252, 0) 75%);
   background-attachment: fixed;
+}
+
+/* Faint technical grid texture, masked so it fades toward the page edges. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(25, 28, 41, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(25, 28, 41, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 80%);
 }
 
 @layer components {
@@ -28,7 +43,7 @@ body {
   }
 
   .section-label {
-    @apply mb-3 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-apricot-600;
+    @apply mb-4 inline-flex items-center gap-2 rounded-full border border-iris-100 bg-white/70 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-iris-600 shadow-soft backdrop-blur;
   }
 
   .heading {
@@ -36,11 +51,11 @@ body {
   }
 
   .glass {
-    @apply rounded-2xl border border-white/60 bg-white/70 shadow-soft backdrop-blur-md;
+    @apply rounded-2xl border border-white/70 bg-white/70 shadow-soft backdrop-blur-md;
   }
 
   .chip {
-    @apply inline-flex items-center rounded-full border border-apricot-200 bg-apricot-50 px-2.5 py-1 font-mono text-[11px] text-apricot-600;
+    @apply inline-flex items-center rounded-full border border-iris-200/70 bg-iris-50 px-2.5 py-1 font-mono text-[11px] text-iris-700;
   }
 
   .gradient-text {
@@ -48,7 +63,7 @@ body {
   }
 
   .link-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-apricot-500 after:transition-all hover:after:w-full;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-iris-500 after:transition-all hover:after:w-full;
   }
 }
 
@@ -69,12 +84,12 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(245, 131, 47, 0.32);
+  background: rgba(125, 92, 240, 0.32);
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 131, 47, 0.55);
+  background: rgba(125, 92, 240, 0.55);
   background-clip: content-box;
 }

@@ -16,10 +16,22 @@ export const profile = {
   resume: "/Melody_Yin_Resume.pdf",
   photo: "/melody.jpg",
   highlights: [
-    { img: "/logos/cmu-icon.png", label: "M.S. @ Carnegie Mellon" },
+    { img: "/logos/cmu-icon.png", label: "M.S. ECE @ Carnegie Mellon" },
     { img: "/logos/servicenow-icon.png", label: "SWE Intern @ ServiceNow" },
     { img: "/logos/sglang-icon.png", label: "Open source @ SGLang-Omni" },
   ],
+  // Terminal-style metrics card in the hero. Values are real, drawn from the
+  // linearizable multi-Raft KV store project (see `projects` below).
+  heroStats: {
+    user: "melody@infra",
+    command: "bench --p99 --linearizable",
+    caption: "multi-raft kv store",
+    rows: [
+      { label: "p99 latency", value: "< 10 ms" },
+      { label: "throughput", value: "50K QPS" },
+      { label: "availability", value: "99.9 %" },
+    ],
+  },
 };
 
 export type NewsItem = {
@@ -77,6 +89,12 @@ export const affiliations = [
   },
 ];
 
+export type FocusArea = {
+  icon: string;
+  label: string;
+  tint: string;
+};
+
 export const about = {
   lead: "I'm drawn to the layer beneath the model — the systems that decide whether AI actually holds up in production.",
   // **double asterisks** render as bold in the About section.
@@ -85,21 +103,21 @@ export const about = {
     "Along the way I've built **Go & gRPC backends**, a **Multi-Raft key–value store**, **RAG pipelines**, and **CI and benchmarks for LLM inference**. I'm happiest with problems where correctness and latency both matter — consensus, caching, and the trade-offs that only show up under load — and I care about systems that stay observable and predictable as they scale.",
   ],
   focus: [
-    { emoji: "🤖", label: "AI infrastructure & LLM serving", dot: "bg-apricot-500" },
-    { emoji: "🧩", label: "Distributed systems & consensus", dot: "bg-teal-500" },
-    { emoji: "☁️", label: "Cloud infrastructure & backend platforms", dot: "bg-sky-500" },
-    { emoji: "📊", label: "Observability, reliability & performance", dot: "bg-violet-500" },
-  ],
+    { icon: "cpu", label: "AI infrastructure & LLM serving", tint: "text-iris-600 bg-iris-50" },
+    { icon: "network", label: "Distributed systems & consensus", tint: "text-ice-600 bg-ice-50" },
+    { icon: "cloud", label: "Cloud infrastructure & backend platforms", tint: "text-indigo-600 bg-indigo-50" },
+    { icon: "activity", label: "Observability, reliability & performance", tint: "text-aqua-500 bg-aqua-200/40" },
+  ] as FocusArea[],
   interests: {
-    intro: "When I'm off the keyboard, you'll usually find me on a court, a course, or a mat. 🌿",
+    intro: "When I'm off the keyboard, you'll usually find me on a court, a course, or a mat.",
     items: [
       { emoji: "🎾", label: "Tennis", className: "border-emerald-200 bg-emerald-50 text-emerald-700" },
-      { emoji: "⛳", label: "Golf", className: "border-lime-200 bg-lime-50 text-lime-700" },
-      { emoji: "🏸", label: "Badminton", className: "border-sky-200 bg-sky-50 text-sky-700" },
-      { emoji: "🧘‍♀️", label: "Yoga", className: "border-violet-200 bg-violet-50 text-violet-700" },
+      { emoji: "⛳", label: "Golf", className: "border-amber-200 bg-amber-50 text-amber-700" },
+      { emoji: "🏸", label: "Badminton", className: "border-ice-200 bg-ice-50 text-ice-700" },
+      { emoji: "🧘‍♀️", label: "Yoga", className: "border-iris-200 bg-iris-50 text-iris-700" },
       { emoji: "🤸‍♀️", label: "Pilates", className: "border-rose-200 bg-rose-50 text-rose-700" },
     ],
-    invite: "Always up for a match or a session — reach out and let's play together! 💪",
+    invite: "Always up for a match or a session — reach out and let's play together!",
   },
 };
 
@@ -112,6 +130,7 @@ export type Experience = {
   stack: string[];
   location?: string;
   current?: boolean;
+  logo?: string;
   link?: { href: string; label: string };
 };
 
@@ -123,6 +142,7 @@ export const experience: Experience[] = [
     dates: "May 2026 – Present",
     location: "Santa Clara, CA",
     current: true,
+    logo: "/logos/servicenow-icon.png",
     summary:
       "Working on cloud infrastructure and observability for internal platform systems.",
     bullets: [
@@ -136,6 +156,7 @@ export const experience: Experience[] = [
     role: "Open Source Contributor",
     dates: "Jun 2026 – Present",
     current: true,
+    logo: "/logos/sglang-icon.png",
     summary:
       "Contribute to SGLang-Omni, a high-performance serving framework for multimodal LLMs — adding model support and inference benchmarking.",
     bullets: [
@@ -200,6 +221,7 @@ export const experience: Experience[] = [
     role: "Data Analyst Intern",
     dates: "Jan 2024 – Jun 2025",
     location: "San Diego, CA",
+    logo: "/logos/ucsd-icon.jpg",
     summary:
       "Automated data pipelines and reporting for advising operations.",
     bullets: [
@@ -210,6 +232,8 @@ export const experience: Experience[] = [
   },
 ];
 
+export type ProjectMetric = { value: string; label: string };
+
 export type Project = {
   name: string;
   blurb: string;
@@ -217,9 +241,33 @@ export type Project = {
   stack: string[];
   link?: { href: string; label: string };
   tag: string;
+  featured?: boolean;
+  metrics?: ProjectMetric[];
 };
 
 export const projects: Project[] = [
+  {
+    name: "SGLang-Omni — Multimodal LLM Serving",
+    tag: "AI Infrastructure · Open Source",
+    featured: true,
+    blurb:
+      "Shipped native serving for a 16-expert MoE text-to-speech model into a high-performance multimodal LLM inference engine — greedy decode verified frame-for-frame against the reference.",
+    metrics: [
+      { value: "~4.5K", label: "LOC shipped" },
+      { value: "16", label: "MoE experts" },
+      { value: "44.1 kHz", label: "DAC audio" },
+      { value: "frame-exact", label: "vs. reference" },
+    ],
+    bullets: [
+      "Added native serving for Zyphra ZONOS2, a 16-expert MoE text-to-speech model (9-codebook DAC audio @ 44.1 kHz, zero-shot voice cloning), into the multi-stage TTS pipeline — full model, weight loader, and sampler (~4.5K LOC), with greedy decode verified frame-for-frame against the reference. (PR #779)",
+      "Built a concurrency-scaling benchmark and CI gate for Qwen3-ASR inference to track throughput and latency under load, and improved router resilience against transient worker failures. (PRs #647, #628)",
+    ],
+    stack: ["LLM Serving", "MoE", "PyTorch", "CUDA", "Benchmarking", "Python"],
+    link: {
+      href: "https://github.com/sgl-project/sglang-omni/pull/779",
+      label: "PR #779",
+    },
+  },
   {
     name: "Blackwell GEMM Kernel Optimization",
     tag: "GPU / Performance",
@@ -240,6 +288,11 @@ export const projects: Project[] = [
     tag: "Distributed Systems",
     blurb:
       "A linearizable, sharded key–value store built on Multi-Raft consensus.",
+    metrics: [
+      { value: "50K", label: "QPS" },
+      { value: "< 10 ms", label: "P99 latency" },
+      { value: "99.9%", label: "availability" },
+    ],
     bullets: [
       "Built a distributed KV store in Java with Multi-Raft consensus, reaching 99.9% availability, 50K QPS, and <10ms P99 latency for linearizable reads/writes.",
       "Implemented consistent hashing with virtual nodes for ~95% balanced distribution and dynamic shard rebalancing with <1% overhead.",
@@ -279,7 +332,7 @@ export const projects: Project[] = [
 
 export type SkillGroup = {
   group: string;
-  emoji: string;
+  icon: string;
   titleClass: string;
   chipClass: string;
   items: string[];
@@ -288,16 +341,16 @@ export type SkillGroup = {
 export const skills: SkillGroup[] = [
   {
     group: "Languages",
-    emoji: "💻",
-    titleClass: "text-violet-600",
-    chipClass: "border-violet-200 bg-violet-50 text-violet-700",
+    icon: "code",
+    titleClass: "text-iris-600",
+    chipClass: "border-iris-200 bg-iris-50 text-iris-700",
     items: ["C++", "Go", "Python", "Java", "TypeScript"],
   },
   {
     group: "AI / LLM Systems & GPU",
-    emoji: "🤖",
-    titleClass: "text-apricot-600",
-    chipClass: "border-apricot-200 bg-apricot-50 text-apricot-600",
+    icon: "cpu",
+    titleClass: "text-ice-600",
+    chipClass: "border-ice-200 bg-ice-50 text-ice-700",
     items: [
       "LLM serving (SGLang-Omni)",
       "MoE serving",
@@ -309,9 +362,9 @@ export const skills: SkillGroup[] = [
   },
   {
     group: "Backend & Cloud Infra",
-    emoji: "⚙️",
-    titleClass: "text-teal-600",
-    chipClass: "border-teal-200 bg-teal-50 text-teal-700",
+    icon: "server",
+    titleClass: "text-indigo-600",
+    chipClass: "border-indigo-200 bg-indigo-50 text-indigo-700",
     items: [
       "gRPC",
       "Kafka",

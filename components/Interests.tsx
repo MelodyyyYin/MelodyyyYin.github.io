@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, Flower2 } from "lucide-react";
 import Reveal from "./Reveal";
 import { about, profile } from "@/lib/content";
 
@@ -11,10 +11,10 @@ export default function Interests() {
       <div className="container-page">
         <Reveal>
           <p className="section-label">
-            <span className="h-1.5 w-1.5 rounded-full bg-apricot-500" />
+            <Flower2 className="h-3.5 w-3.5" aria-hidden />
             Beyond the keyboard
           </p>
-          <h2 className="heading">🌸 Off the keyboard</h2>
+          <h2 className="heading">Off the keyboard</h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
             {about.interests.intro}
           </p>

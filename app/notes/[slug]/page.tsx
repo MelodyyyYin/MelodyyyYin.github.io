@@ -69,7 +69,7 @@ export default async function NotePage({
         </div>
 
         <article
-          className="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-headings:text-ink prose-a:text-apricot-600 prose-strong:text-ink prose-blockquote:border-l-apricot-300 prose-blockquote:text-ink-soft prose-code:text-apricot-600"
+          className="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-headings:text-ink prose-a:text-iris-600 prose-strong:text-ink prose-blockquote:border-l-iris-300 prose-blockquote:text-ink-soft prose-code:text-iris-600"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </main>
